@@ -37,7 +37,5 @@ document.querySelectorAll('.practice').forEach(box=>{
  box.querySelector('.reset').addEventListener('click',()=>{checks.forEach(c=>{c.control.value='';c.f.textContent='';c.control.removeAttribute('aria-invalid')});box.querySelector('.score').textContent='Practice reset. You can start again.'});
 });
 document.querySelectorAll('textarea').forEach(el=>{const key='u3-response-'+el.id;try{el.value=localStorage.getItem(key)||''}catch{}el.addEventListener('input',()=>{try{localStorage.setItem(key,el.value)}catch{}})});
-document.querySelector('#save-draft').addEventListener('click',()=>{const blob=new Blob([document.querySelector('#draft').value],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=make('a');a.href=url;a.download='my-inquiry-reply.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)});
-
 const updateHeaderHeight=()=>document.documentElement.style.setProperty('--header-height',`${document.querySelector('header').getBoundingClientRect().height}px`);updateHeaderHeight();new ResizeObserver(updateHeaderHeight).observe(document.querySelector('header'));
 
