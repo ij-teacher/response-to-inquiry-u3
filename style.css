@@ -8,3 +8,5 @@
 .home-qr{margin:24px 0 0;display:flex;gap:18px;align-items:center;font-size:13px}.home-qr img{background:white;padding:5px;border-radius:4px}.home-qr figcaption{max-width:120px}@media(max-width:480px){.home-qr img{width:120px;height:120px}}
 .hero{padding-top:40px}.hero-card>div p{margin:12px 0}.home-qr{margin-top:16px}.home-qr img{width:120px;height:120px}
 
+.vocabulary-table{table-layout:fixed;font-size:15px;background:#fffefa;border:1px solid var(--line)}.vocabulary-table th,.vocabulary-table td{white-space:normal;overflow-wrap:anywhere;vertical-align:top;padding:18px 20px;text-align:left}.vocabulary-table thead th{background:var(--ink);color:white}.vocabulary-table th:first-child{width:22%}.vocabulary-table th:nth-child(2){width:40%}.vocabulary-table th:nth-child(3){width:38%}.vocabulary-table tbody th{background:#edf0e5;font-size:16px;font-weight:700}.vocabulary-table tbody tr:nth-child(even) td{background:#f4f5ed}.vocab-zh{color:var(--orange);font-weight:600}@media(max-width:600px){.vocabulary-table{min-width:640px}.vocabulary-table th,.vocabulary-table td{padding:14px}}
+
