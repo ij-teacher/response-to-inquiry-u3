@@ -6,3 +6,5 @@
 /* Hide resource UI while private storage awaits GitHub verification. */ #resources, a[href="#resources"], a[href^="resources/"], aside .small {display:none !important}
 
 .home-qr{margin:24px 0 0;display:flex;gap:18px;align-items:center;font-size:13px}.home-qr img{background:white;padding:5px;border-radius:4px}.home-qr figcaption{max-width:120px}@media(max-width:480px){.home-qr img{width:120px;height:120px}}
+.hero{padding-top:40px}.hero-card>div p{margin:12px 0}.home-qr{margin-top:16px}.home-qr img{width:120px;height:120px}
+
