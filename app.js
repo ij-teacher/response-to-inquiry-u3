@@ -23,12 +23,13 @@ document.querySelectorAll('.practice').forEach(box=>{
   matchingScore.textContent=`Vocabulary matching: ${score} of ${matchingChecks.length} correct.`;
  });
  box.querySelector('.reset').addEventListener('click',()=>{matchingScore.textContent=''});
- const matchingKey=make('details','matching-answer-key');
- matchingKey.append(make('summary','','Show answer key'));
- const keyList=make('ol');
- terms.forEach(([word,zh,def])=>{const item=make('li');item.append(make('strong','',word),document.createTextNode(` (${zh}) — ${def}`));keyList.append(item)});
- matchingKey.append(keyList);box.querySelector('.matching').after(matchingKey);
- box.querySelector('.reset').addEventListener('click',()=>{matchingKey.open=false});
+ const matchingClear=make('button','matching-clear secondary','Clear vocabulary answers');matchingClear.type='button';
+ matchingButton.after(document.createTextNode(' '),matchingClear);
+ matchingClear.addEventListener('click',()=>{
+  matchingChecks.forEach(c=>{c.control.value='';c.f.textContent='';c.f.className='feedback';c.control.removeAttribute('aria-invalid')});
+  matchingScore.textContent='';
+  box.querySelector('.score').textContent='';
+ });
  const originalBank=box.querySelector('.wordbank'), blankArea=box.querySelector('.blanks');
  const exercise=make('section','blank-exercise');blankArea.before(exercise);exercise.append(originalBank.previousElementSibling,originalBank,blankArea);
  const bank=make('div','wordbank sticky-wordbank');originalBank.replaceWith(bank);bank.setAttribute('aria-label','Word bank');bank.append(make('strong','','Word bank'));
