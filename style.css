@@ -42,3 +42,5 @@ details,.feedback,.wordbank,.blank-sentence{font-size:20px}
 #lesson2 .source-letter th,#lesson2 .source-letter td{background:transparent;border:0;padding:5px 8px 5px 0}
 #lesson2 .source-notes{margin-top:26px;font-size:18px;line-height:1.4}
 #lesson2 .source-notes p{margin:0 0 10px;white-space:normal}
+
+#lesson2> .source-notes{margin:0 0 40px;padding:24px 28px;background:#e8eddf;border:1px solid var(--line);border-radius:6px;font-size:20px;line-height:1.5}#lesson2> .source-notes h3{margin:0 0 16px}#lesson2> .source-notes p:last-child{margin-bottom:0}
