@@ -8,6 +8,12 @@ document.querySelectorAll('.practice').forEach(box=>{
  lessonData.tf[i].forEach(([q,a,e],j)=>add('.tf',`${j+1}. ${q}`,trueFalse(`tf-${i}-${j}`),String(a),e));
  const terms=lessonData.vocab[i];const sorted=[...terms].sort((a,b)=>a[0].localeCompare(b[0]));
  terms.forEach(([word,zh,def],j)=>add('.matching',`${j+1}. ${def}`,choose(`match-${i}-${j}`,sorted.map(([w])=>[w,w])),word,`${word} (${zh})`));
+ const matchingKey=make('details','matching-answer-key');
+ matchingKey.append(make('summary','','Show answer key'));
+ const keyList=make('ol');
+ terms.forEach(([word,zh,def])=>{const item=make('li');item.append(make('strong','',word),document.createTextNode(` (${zh}) — ${def}`));keyList.append(item)});
+ matchingKey.append(keyList);box.querySelector('.matching').after(matchingKey);
+ box.querySelector('.reset').addEventListener('click',()=>{matchingKey.open=false});
  const originalBank=box.querySelector('.wordbank'), blankArea=box.querySelector('.blanks');
  const exercise=make('section','blank-exercise');blankArea.before(exercise);exercise.append(originalBank.previousElementSibling,originalBank,blankArea);
  const bank=make('div','wordbank sticky-wordbank');originalBank.replaceWith(bank);bank.setAttribute('aria-label','Word bank');bank.append(make('strong','','Word bank'));
