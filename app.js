@@ -8,6 +8,21 @@ document.querySelectorAll('.practice').forEach(box=>{
  lessonData.tf[i].forEach(([q,a,e],j)=>add('.tf',`${j+1}. ${q}`,trueFalse(`tf-${i}-${j}`),String(a),e));
  const terms=lessonData.vocab[i];const sorted=[...terms].sort((a,b)=>a[0].localeCompare(b[0]));
  terms.forEach(([word,zh,def],j)=>add('.matching',`${j+1}. ${def}`,choose(`match-${i}-${j}`,sorted.map(([w])=>[w,w])),word,`${word} (${zh})`));
+ const matchingChecks=checks.filter(c=>c.control.id.startsWith(`match-${i}-`));
+ const matchingButton=make('button','matching-check','Check vocabulary answers');matchingButton.type='button';
+ const matchingScore=make('p','matching-score');matchingScore.setAttribute('role','status');matchingScore.setAttribute('aria-live','polite');
+ box.querySelector('.matching').append(matchingButton,matchingScore);
+ matchingButton.addEventListener('click',()=>{
+  let score=0;
+  matchingChecks.forEach(c=>{
+   const ok=normalize(c.control.value)===normalize(c.answer);if(ok)score++;
+   c.f.className='feedback '+(ok?'correct':'incorrect');
+   c.f.textContent=(ok?'✓ Correct. ':c.control.value?'Try again. ':'Choose an answer. ')+c.explain;
+   c.control.setAttribute('aria-invalid',String(!ok));
+  });
+  matchingScore.textContent=`Vocabulary matching: ${score} of ${matchingChecks.length} correct.`;
+ });
+ box.querySelector('.reset').addEventListener('click',()=>{matchingScore.textContent=''});
  const matchingKey=make('details','matching-answer-key');
  matchingKey.append(make('summary','','Show answer key'));
  const keyList=make('ol');
