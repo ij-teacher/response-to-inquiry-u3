@@ -34,3 +34,11 @@ details,.feedback,.wordbank,.blank-sentence{font-size:20px}
 .word-tile,.drop-blank{font-size:20px}
 .drop-blank{min-width:130px;padding:5px 10px}
 @media(max-width:600px){.question textarea{max-width:100%}.blank-sentence{font-size:20px}.word-tile{font-size:18px}}
+
+/* Match the source letter's block layout and typographic emphasis. */
+#lesson2 .source-letter{line-height:1.4;text-align:left}
+#lesson2 .source-letter>p{margin:0 0 16px;white-space:normal}
+#lesson2 .source-letter table{font-family:"Times New Roman",Times,serif;font-size:18px;margin:8px 0 18px}
+#lesson2 .source-letter th,#lesson2 .source-letter td{background:transparent;border:0;padding:5px 8px 5px 0}
+#lesson2 .source-notes{margin-top:26px;font-size:18px;line-height:1.4}
+#lesson2 .source-notes p{margin:0 0 10px;white-space:normal}
