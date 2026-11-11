@@ -16,3 +16,6 @@
 
 .word-tile{touch-action:none;user-select:none}.word-tile.dragging{opacity:.6;cursor:grabbing;outline:2px solid var(--orange)}
 
+
+/* Use Times New Roman throughout the lesson and its interactive controls. */
+body,button,input,select,textarea,.button,h1,h2,.hero-card b{font-family:"Times New Roman",Times,serif}
