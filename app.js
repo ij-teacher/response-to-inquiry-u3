@@ -6,6 +6,21 @@ document.querySelectorAll('.practice').forEach(box=>{
  const i=Number(box.dataset.lesson), checks=[];
  const add=(holder,prompt,control,answer,explain)=>{const row=make('div','item');const label=make('label','',prompt);label.id=control.id+'-label';if(control.tagName==='FIELDSET')control.setAttribute('aria-labelledby',label.id);else label.htmlFor=control.id;const f=make('p','feedback');f.id=control.id+'-feedback';control.setAttribute('aria-describedby',f.id);row.append(label,control,f);box.querySelector(holder).append(row);checks.push({control,answer,explain,f})};
  lessonData.tf[i].forEach(([q,a,e],j)=>add('.tf',`${j+1}. ${q}`,trueFalse(`tf-${i}-${j}`),String(a),e));
+ const tfChecks=checks.filter(c=>c.control.id.startsWith(`tf-${i}-`));
+ const tfCheck=make('button','tf-check','Check answers');tfCheck.type='button';
+ const tfScore=make('p','tf-score');tfScore.setAttribute('role','status');tfScore.setAttribute('aria-live','polite');
+ box.querySelector('.tf').append(tfCheck,tfScore);
+ tfCheck.addEventListener('click',()=>{
+  let score=0;
+  tfChecks.forEach(c=>{
+   const ok=normalize(c.control.value)===normalize(c.answer);if(ok)score++;
+   c.f.className='feedback '+(ok?'correct':'incorrect');
+   c.f.textContent=(ok?'✓ Correct. ':c.control.value?'Try again. ':'Choose True or False. ')+c.explain;
+   c.control.setAttribute('aria-invalid',String(!ok));
+  });
+  tfScore.textContent=`True or false: ${score} of ${tfChecks.length} correct.`;
+ });
+ box.querySelector('.reset').addEventListener('click',()=>{tfScore.textContent=''});
  const terms=lessonData.vocab[i];const sorted=[...terms].sort((a,b)=>a[0].localeCompare(b[0]));
  terms.forEach(([word,zh,def],j)=>add('.matching',`${j+1}. ${def}`,choose(`match-${i}-${j}`,sorted.map(([w])=>[w,w])),word,`${word} (${zh})`));
  const matchingChecks=checks.filter(c=>c.control.id.startsWith(`match-${i}-`));
