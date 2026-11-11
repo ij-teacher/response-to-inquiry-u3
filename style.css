@@ -19,3 +19,18 @@
 
 /* Use Times New Roman throughout the lesson and its interactive controls. */
 body,button,input,select,textarea,.button,h1,h2,.hero-card b{font-family:"Times New Roman",Times,serif}
+
+/* Larger reading text with compact answer controls. */
+body{font-size:20px}
+.lesson .intro{font-size:21px}
+.letter{font-size:20px}
+.question label,.practice .item>label{font-size:21px}
+.question textarea{display:block;width:100%;max-width:720px;height:56px;min-height:56px;padding:8px 12px;font-size:21px;line-height:1.4}
+.tf-options{gap:10px;margin:8px 0}
+.tf-choice span{min-width:76px;padding:6px 14px;font-size:21px;line-height:1.35}
+.practice select,.practice input{font-size:20px;padding:7px 10px}
+.vocabulary-table,.vocabulary-table tbody th{font-size:20px}
+details,.feedback,.wordbank,.blank-sentence{font-size:20px}
+.word-tile,.drop-blank{font-size:20px}
+.drop-blank{min-width:130px;padding:5px 10px}
+@media(max-width:600px){.question textarea{max-width:100%}.blank-sentence{font-size:20px}.word-tile{font-size:18px}}
